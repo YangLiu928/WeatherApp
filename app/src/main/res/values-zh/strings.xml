@@ -34,7 +34,7 @@
     <string name="preference_location_default_value"></string>
     <string name="progress_loading_weather_data">正在获取天气信息</string>
     <string name="preference_metric_unit_default_fahrenheit_text">Fahrenheit</string>
-    <string name="weather_data_failed_to_load_toast">无法获取天气信息，请确保您输入的邮编是有效的</string>
+    <string name="weather_data_failed_to_load_toast">无法获取天气信息,这可能是由于缺乏因特网链接或者不合理的邮编造成的</string>
     <string name="weather_data_loaded_toast">天气信息已更新</string>
     <string name="location_detection_no_permission_exception">由于权限所限无法获取地理信息</string>
     <string name="location_permission_title">授权请求</string>

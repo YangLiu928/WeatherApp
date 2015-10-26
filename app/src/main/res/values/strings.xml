@@ -34,7 +34,7 @@
     <string name="preference_location_default_value"></string>
     <string name="progress_loading_weather_data">Please wait while we access the weather data</string>
     <string name="preference_metric_unit_default_fahrenheit_text">Fahrenheit</string>
-    <string name="weather_data_failed_to_load_toast">Weather data failed to load! Please make sure you input a valid zip code</string>
+    <string name="weather_data_failed_to_load_toast">Weather data failed to load! This might be caused by either lack of internet access or a invalid zipcode</string>
     <string name="weather_data_loaded_toast">Weather data updated!</string>
     <string name="location_detection_no_permission_exception">Cannot access location data due to lack of permission</string>
     <string name="location_permission_title">Location Permission</string>
