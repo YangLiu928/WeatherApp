@@ -6,7 +6,7 @@
         android:key="@string/preference_key_number_of_days"
         android:entryValues="@array/numberOfDays"
         android:entries="@array/numberOfDays"
-        android:defaultValue="3"/>
+        android:defaultValue="@string/preference_number_of_days_default_value"/>
     <ListPreference
         android:title="@string/preference_title_metric"
         android:summary="@string/preference_summary_metric"

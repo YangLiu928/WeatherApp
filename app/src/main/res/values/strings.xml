@@ -40,4 +40,5 @@
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_message">The app will now request access to your location</string>
     <string name="location_not_found_time_out_toast">Connection timed out.Cannot get current location. Please specify a zip code in settings</string>
+    <string name="preference_number_of_days_default_value">3</string>
 </resources>

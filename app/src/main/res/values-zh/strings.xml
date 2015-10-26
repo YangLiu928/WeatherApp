@@ -40,4 +40,5 @@
     <string name="location_permission_title">授权请求</string>
     <string name="location_permission_message">本款应用需要获取您的地理信息</string>
     <string name="location_not_found_time_out_toast">连接超时，请输入邮编以获得天气信息</string>
+    <string name="preference_number_of_days_default_value">3</string>
 </resources>

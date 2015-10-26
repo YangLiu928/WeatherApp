@@ -130,7 +130,9 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
         if (mShouldRefreshData){
             mShouldRefreshData=false;
             mSharedPreference = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            mQueryData = new QueryData(Integer.parseInt(mSharedPreference.getString("numberOfDays","3")),mSharedPreference.getString("metricUnit","Celsius"),mSharedPreference.getString("location","22304"));
+            mQueryData = new QueryData(Integer.parseInt(mSharedPreference.getString(this.getString(R.string.preference_key_number_of_days),this.getString(R.string.preference_number_of_days_default_value))),
+                    mSharedPreference.getString(this.getString(R.string.preference_key_metric),this.getString(R.string.preference_metric_unit_default_fahrenheit_text)),
+                    mSharedPreference.getString(this.getString(R.string.preference_key_location),this.getString(R.string.preference_location_default_value)));
             if (mQueryData.getLocation()==null||mQueryData.getLocation().trim().equals("")){
                 LocationFinder mLocationFinder = new LocationFinder(this,this);
                 mLocationFinder.detectLocation();
@@ -144,7 +146,8 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
     @Override
     public void locationFound(Location location) {
         String coordinate = location.getLatitude()+","+location.getLongitude();
-        mQueryData = new QueryData(Integer.parseInt(mSharedPreference.getString("numberOfDays", "3")),mSharedPreference.getString("metricUnit","Celsius"),coordinate);
+        mQueryData = new QueryData(Integer.parseInt(mSharedPreference.getString(this.getString(R.string.preference_key_number_of_days),this.getString(R.string.preference_number_of_days_default_value))),
+                mSharedPreference.getString(this.getString(R.string.preference_key_metric),this.getString(R.string.preference_metric_unit_default_fahrenheit_text)),coordinate);
         GetWeatherDataAsyncTask task = new GetWeatherDataAsyncTask(DisplayWeatherActivity.this,DisplayWeatherActivity.this);
         task.execute(mQueryData);
     }
