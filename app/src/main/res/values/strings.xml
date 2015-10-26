@@ -24,4 +24,5 @@
     <string name="preference_number_of_days_default_value">3</string>
     <string name="previous_should_refresh_data_key">previousShouldRefreshData</string>
     <string name="previous_weather_data_array_key">previousWeatherDataArray</string>
+    <string name="location_not_found_gps_turned_off">Cannot access location data. Please turn GPS on</string>
 </resources>

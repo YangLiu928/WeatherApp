@@ -159,6 +159,8 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
             Toast.makeText(this, R.string.location_detection_no_permission_exception,Toast.LENGTH_LONG).show();
         } else if (failureReason== LocationFinder.FailureReason.TIMEOUT){
             Toast.makeText(this, R.string.location_not_found_time_out_toast,Toast.LENGTH_LONG).show();
+        } else if (failureReason==LocationFinder.FailureReason.GPS_TURNED_OFF){
+            Toast.makeText(this, R.string.location_not_found_gps_turned_off,Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -37,7 +37,8 @@ public class LocationFinder implements LocationListener {
 
     public enum FailureReason{
         NO_PERMISSION,
-        TIMEOUT
+        TIMEOUT,
+        GPS_TURNED_OFF
     }
 
     public interface LocationDetector{
@@ -65,7 +66,13 @@ public class LocationFinder implements LocationListener {
 
             if(ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 23) {
                 mLocationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, this, null);
-                startTimer();
+                if (!mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                    endLocationDetection();
+                    mProgressDialog.dismiss();
+                    mLocationDetector.locationNotFound(FailureReason.GPS_TURNED_OFF);
+                } else {
+                    startTimer();
+                }
             }
             else {
                 endLocationDetection();
@@ -112,6 +119,7 @@ public class LocationFinder implements LocationListener {
 
         if(lastKnownLocation != null){
             mLocationDetector.locationFound(lastKnownLocation);
+
         }
         else{
             mLocationDetector.locationNotFound(FailureReason.TIMEOUT);
