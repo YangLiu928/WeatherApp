@@ -1,22 +1,35 @@
-package com.myapps.weatherapp;
+package com.myapps.weatherapp.Acticities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class DisplayWeather extends AppCompatActivity {
+import com.myapps.weatherapp.R;
 
+public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_weather);
+        getFragmentManager().beginTransaction().replace(android.R.id.content,new MyPreferenceFragment()).commit();
     }
+
+    public static class MyPreferenceFragment extends PreferenceFragment
+    {
+        @Override
+        public void onCreate(final Bundle savedInstanceState)
+        {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.settings);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_weather, menu);
+        getMenuInflater().inflate(R.menu.menu_settings, menu);
         return true;
     }
 
