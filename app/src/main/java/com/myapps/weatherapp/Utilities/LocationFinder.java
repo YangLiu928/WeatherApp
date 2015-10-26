@@ -28,7 +28,7 @@ public class LocationFinder implements LocationListener {
     private Context mContext;
     private LocationDetector mLocationDetector;
     private ProgressDialog mProgressDialog;
-    private final int TIMEOUT_IN_MS = 20000; //10 second timeout
+    private final int TIMEOUT_IN_MS = 20000; //20 second timeout
 
     private boolean mIsDetectingLocation = false;
 

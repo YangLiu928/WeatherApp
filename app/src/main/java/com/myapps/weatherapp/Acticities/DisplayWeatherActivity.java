@@ -8,15 +8,12 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -89,11 +86,9 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.d(TAG, "onsavecalled1");
         super.onSaveInstanceState(outState);
         outState.putBoolean("previousShouldRefreshData", mShouldRefreshData);
         outState.putParcelableArrayList("previousWeatherDataArray", mWeatherDataArrayList);
-        Log.d(TAG,"onsavecalled"+String.valueOf(mWeatherDataArrayList.size()));
     }
 
     @Override

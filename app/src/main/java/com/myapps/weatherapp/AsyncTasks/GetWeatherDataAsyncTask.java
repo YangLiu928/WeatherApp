@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.google.gson.JsonObject;
-import com.myapps.weatherapp.Acticities.DisplayWeatherActivity;
 import com.myapps.weatherapp.Models.QueryData;
 import com.myapps.weatherapp.Models.WeatherData;
 import com.myapps.weatherapp.R;
