@@ -119,6 +119,7 @@ public class LocationFinder implements LocationListener {
 
         if(lastKnownLocation != null){
             mLocationDetector.locationFound(lastKnownLocation);
+            mProgressDialog.dismiss();
 
         }
         else{
