@@ -41,7 +41,7 @@ public class Utilities {
             if (queryData.getDaysToDisplay()>=5){
                 stringBuilder.append(TEN_DAY_FORECAST);
             }
-            stringBuilder.append(SLASH+queryData.getLocation()+DOT_JSON);
+            stringBuilder.append(SLASH).append(queryData.getLocation()).append(DOT_JSON);
             return Ion.with(context).load(stringBuilder.toString()).asJsonObject().get();
         } catch (Exception e) {
             return null;

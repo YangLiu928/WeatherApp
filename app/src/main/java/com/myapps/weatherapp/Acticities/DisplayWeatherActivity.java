@@ -46,18 +46,17 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG,"on create, now should referesh is"+mShouldRefreshData);
         setContentView(R.layout.activity_display_weather);
         if (savedInstanceState!=null){
-            this.mShouldRefreshData=savedInstanceState.getBoolean("previousShouldRefreshData");
-            this.mWeatherDataArrayList= savedInstanceState.getParcelableArrayList("previousWeatherDataArray");
-            Log.d(TAG, "loadsavedinstance"+String.valueOf(mWeatherDataArrayList.size()));
-            WeatherData[] temp = new WeatherData[mWeatherDataArrayList.size()];
-            for (int i = 0; i <temp.length;i++){
-                temp[i] = mWeatherDataArrayList.get(i);
+            this.mShouldRefreshData=savedInstanceState.getBoolean(getString(R.string.previous_should_refresh_data_key));
+            this.mWeatherDataArrayList= savedInstanceState.getParcelableArrayList(getString(R.string.previous_weather_data_array_key));
+            if (mWeatherDataArrayList.size()!=0){
+                WeatherData[] temp = new WeatherData[mWeatherDataArrayList.size()];
+                for (int i = 0; i <temp.length;i++){
+                    temp[i] = mWeatherDataArrayList.get(i);
+                }
+                populateListView(temp);
             }
-            Log.d(TAG, "temp is in size of " + temp.length);
-            populateListView(temp);
         }
         mSettingsButton = (Button) findViewById(R.id.settings_button);
         mSettingsButton.setOnClickListener(new View.OnClickListener() {
@@ -110,18 +109,20 @@ public class DisplayWeatherActivity extends AppCompatActivity implements GetWeat
                 (ListView) findViewById(R.id.weather_listing);
         ArrayList<ListItem> array = new ArrayList<>();
         this.mWeatherDataArrayList.clear();
-        for (int i = 0; i < weatherDataArray.length;i++){
+        for (WeatherData aWeatherDataArray : weatherDataArray) {
             ListItem item = new ListItem();
-            item.setWeather(weatherDataArray[i].getWeather());
-            item.setTempRange(weatherDataArray[i].getLowTemp() + " ~ " + weatherDataArray[i].getHighTemp() + " " + weatherDataArray[i].getUnit());
-            item.setDate(weatherDataArray[i].getDate());
-            item.setWeatherImageURL(weatherDataArray[i].getImageURL());
+            item.setWeather(aWeatherDataArray.getWeather());
+            item.setTempRange(aWeatherDataArray.getLowTemp() + " ~ " + aWeatherDataArray.getHighTemp() + " " + aWeatherDataArray.getUnit());
+            item.setDate(aWeatherDataArray.getDate());
+            item.setWeatherImageURL(aWeatherDataArray.getImageURL());
             array.add(item);
-            this.mWeatherDataArrayList.add(weatherDataArray[i]);
+            this.mWeatherDataArrayList.add(aWeatherDataArray);
         }
         ArrayAdapter<ListItem> adapter = new MyAdapter(DisplayWeatherActivity.this, R.layout.list_item,array);
-        Log.d(TAG,"adapter = null "+ String.valueOf(adapter==null) + "weatherlisting==null"+String.valueOf(weatherListing==null));
-        weatherListing.setAdapter(adapter);
+        if (weatherListing!=null) {
+            weatherListing.setAdapter(adapter);
+        }
+        //TODO: how do I want to handle the null pointer exception..? Toast with text unfriendly to users? ("weather listing is null!!")
     }
 
     @Override

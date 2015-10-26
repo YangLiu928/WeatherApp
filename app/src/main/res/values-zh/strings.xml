@@ -1,26 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title">Weather App</string>
-    <string name="action_settings">Settings</string>
-    <string name="weather_category">weather</string>
-    <string name="location">location</string>
-    <string name="temperature">temperature</string>
     <string name="setting_button_text">设置</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="settings_title">Settings</string>
-    <string name="select_number_of_day_text">Number of Days to Display</string>
-    <string name="days"> days</string>
-    <string name="save_changes_button_text">Save Changes</string>
-    <string name="number_of_days_to_display_edittext_hint">eg. 3   </string>
-    <string name="celsius_radio_button_text">celsius</string>
-    <string name="zip_code_hint">eg. 22180</string>
-    <string name="zip_code">zip code</string>
-    <string name="cancel_button_text">Cancel</string>
-    <string name="radio_use_current_location">Use current location</string>
-    <string name="radio_input_a_zip_code">input a zip code</string>
-    <string name="metric_system_text">Metric System</string>
-    <string name="title_activity_second_settings">SecondSettingsActivity</string>
     <string name="progress_loading_location_data">正在获取位置信息</string>
     <string name="preference_title_number_of_days">显示天数</string>
     <string name="preference_description_set_number_of_days">请输入希望显示天气的天数</string>
@@ -41,4 +22,6 @@
     <string name="location_permission_message">本款应用需要获取您的地理信息</string>
     <string name="location_not_found_time_out_toast">连接超时，请输入邮编以获得天气信息</string>
     <string name="preference_number_of_days_default_value">3</string>
+    <string name="previous_should_refresh_data_key">previousShouldRefreshData</string>
+    <string name="previous_weather_data_array_key">previousWeatherDataArray</string>
 </resources>

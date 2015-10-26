@@ -55,7 +55,7 @@ public class LocationFinder implements LocationListener {
         mProgressDialog.setMessage(mContext.getString(R.string.progress_loading_location_data));
         mProgressDialog.show();
 
-        if(mIsDetectingLocation == false){
+        if(!mIsDetectingLocation){
             mIsDetectingLocation = true;
 
             if(mLocationManager == null){
