@@ -69,12 +69,12 @@ public class LocationFinder implements LocationListener {
             else {
                 endLocationDetection();
                 mLocationDetector.locationNotFound(FailureReason.NO_PERMISSION);
+                mProgressDialog.dismiss();
             }
         }
         else{
             Log.d(TAG, "already trying to detect location");
         }
-        mProgressDialog.dismiss();
     }
 
     private void endLocationDetection(){
@@ -102,6 +102,7 @@ public class LocationFinder implements LocationListener {
     }
 
     private void fallbackOnLastKnownLocation(){
+        Log.d(TAG,"fall back called");
         Location lastKnownLocation = null;
 
         if(ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 23) {
@@ -113,12 +114,17 @@ public class LocationFinder implements LocationListener {
         }
         else{
             mLocationDetector.locationNotFound(FailureReason.TIMEOUT);
+            mProgressDialog.dismiss();
         }
     }
 
     @Override
     public void onLocationChanged(Location location) {
+        endLocationDetection();//Jesus.....this is why I have the fall back called every SINGLE time!!!
         mLocationDetector.locationFound(location);
+        Log.d(TAG,"onLocationChangedCalled");
+        mProgressDialog.dismiss();
+
     }
 
     @Override

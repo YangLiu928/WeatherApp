@@ -31,7 +31,7 @@
     <string name="preference_title_location">Location</string>
     <string name="preference_summary_location">Enter a zip code or leave it blank to use your current location</string>
     <string name="preference_key_location">location</string>
-    <string name="preference_location_default_value">22304</string>
+    <string name="preference_location_default_value"></string>
     <string name="progress_loading_weather_data">Please wait while we access the weather data</string>
     <string name="preference_metric_unit_default_fahrenheit_text">Fahrenheit</string>
     <string name="weather_data_failed_to_load_toast">Weather data failed to load! Please make sure you input a valid zip code</string>
@@ -39,4 +39,5 @@
     <string name="location_detection_no_permission_exception">Cannot access location data due to lack of permission</string>
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_message">The app will now request access to your location</string>
+    <string name="location_not_found_time_out_toast">Connection timed out.Cannot get current location. Please specify a zip code in settings</string>
 </resources>
